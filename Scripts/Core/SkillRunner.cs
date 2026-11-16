@@ -8,21 +8,17 @@ namespace SkillFramework
         private readonly List<Skill> activeSkills = new List<Skill>();
         private readonly List<Skill> cooldownSkills = new List<Skill>();
 
-        public Skill Play(SkillConfig config, ISkillOwner owner)
+        public bool Play(Skill skill)
         {
-            if (config == null)
+            if (skill == null || skill.IsCoolingDown)
             {
-                return null;
+                return false;
             }
-
-            Skill skill = config.CreateSkill(owner);
             skill.Play();
             activeSkills.Add(skill);
             if (skill.IsCoolingDown)
-            {
                 cooldownSkills.Add(skill);
-            }
-            return skill;
+            return true;
         }
 
         private void Update()
