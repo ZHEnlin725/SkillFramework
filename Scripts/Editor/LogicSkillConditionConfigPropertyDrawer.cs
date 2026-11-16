@@ -28,15 +28,14 @@ namespace SkillFramework.Editor
                 EditorGUI.PropertyField(operatorRect, operatorProperty, true);
             }
 
+            var reorderableList = SkillConditionListEditorUtility.GetList(property, "Conditions", "Conditions");
             Rect listRect = new Rect(
                 position.x,
                 position.y + EditorGUIUtility.singleLineHeight +
                 EditorGUIUtility.standardVerticalSpacing,
                 position.width,
-                SkillConditionListEditorUtility.GetList(
-                    property, "Conditions", "Conditions").GetHeight());
-            SkillConditionListEditorUtility.GetList(property, "Conditions", "Conditions")
-                .DoList(listRect);
+                reorderableList.GetHeight());
+            reorderableList.DoList(listRect);
         }
     }
 }

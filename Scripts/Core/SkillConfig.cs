@@ -4,17 +4,6 @@ using UnityEngine;
 
 namespace SkillFramework
 {
-    public enum SkillNodeType
-    {
-        Condition,
-        DamageJudge,
-        RangeDetection,
-        Movement,
-        PlayAnimation,
-        PlayAudio,
-        PlayEffect
-    }
-
     [Serializable]
     public abstract class SkillNodeConfig
     {
