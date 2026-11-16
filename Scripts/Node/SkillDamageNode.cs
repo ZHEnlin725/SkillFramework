@@ -15,6 +15,7 @@ namespace SkillFramework
             targetSourceNodeId = nodeConfig.TargetSourceNodeId;
             formula = nodeConfig.Formula;
             targetResultKey = new SkillNodeResultKey<List<ISkillTarget>>(targetSourceNodeId);
+            dependsOnNodeIds.Add(targetSourceNodeId);
         }
 
         protected override void OnTick(SkillContext context)
